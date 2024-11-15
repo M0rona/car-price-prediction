@@ -21,7 +21,7 @@ combustivel = st.selectbox('Tipo de Combustível', dados_carros['fuel'].unique()
 tipo_vendedor = st.selectbox('Tipo de Vendedor', dados_carros['seller_type'].unique())
 transmissao = st.selectbox('Tipo de Transmissão', dados_carros['transmission'].unique())
 proprietario = st.selectbox('Tipo de Proprietário', dados_carros['owner'].unique())
-quilometragem = st.slider('Quilometragem do Carro', 10, 40)
+quilometragem = st.slider('Consumo de combustivel', 10, 40)
 motor = st.slider('Cilindrada do Motor (CC)', 700, 5000)
 potencia_maxima = st.slider('Potência Máxima', 0, 200)
 assentos = st.slider('Número de Assentos', 5, 10)
@@ -47,4 +47,4 @@ if st.button("Prever preço"):
 
     preco_carro = modelo.predict(dados_entrada_modelo)
 
-    st.markdown('O preço do carro será ' + "R${:,.2f}".format(preco_carro[0] / 14.57).replace(",", "X").replace(".", ",").replace("X", "."))
+    st.markdown('O preço do carro será ' + "R$ {:,.2f}".format(preco_carro[0] / 14.57).replace(",", "X").replace(".", ",").replace("X", "."))
